@@ -1,1 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaming Zone - Ultimate Glow Edition</title>
+  
+  <!-- Google Font: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    /* === ADVANCED CYBER NEON & EMERALD GLOW BACKGROUND === */
+    body {
+      background-color: #030712;
+      background-image: 
+        radial-gradient(circle at 50% -10%, rgba(147, 51, 234, 0.35) 0%, transparent 60%),
+        radial-gradient(circle at 85% 90%, rgba(16, 185, 129, 0.2) 0%, transparent 55%),
+        radial-gradient(circle at 10% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: #f3e8ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Header Section */
+    header {
+      width: 100%;
+      max-width: 1000px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(147, 51, 234, 0.3);
+    }
+    header img {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      box-shadow: 0 0 15px rgba(147, 51, 234, 0.4);
+    }
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* === SUB-HEADING / TITLE WITH INTENSE RED GLOW === */
+    .title-section {
+      text-align: center;
+      margin: 30px 0 20px 0;
+    }
+    .title-section h2 {
+      font-size: 34px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      
+      /* Red Gradient Text */
+      background: linear-gradient(180deg, #ffffff 0%, #ff1e00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      
+      /* Glowing Red Shadow Effect */
+      filter: drop-shadow(0 0 12px rgba(255, 30, 0, 0.8)) drop-shadow(0 0 25px rgba(255, 0, 0, 0.5));
+    }
+
+    /* Search Bar */
+    .search-container {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 35px;
+    }
+    .search-container input {
+      width: 100%;
+      padding: 14px 24px;
+      border-radius: 25px;
+      border: 1px solid rgba(147, 51, 234, 0.4);
+      background-color: rgba(11, 15, 28, 0.75);
+      color: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(12px);
+    }
+    .search-container input:focus {
+      border-color: #a855f7;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+    }
+
+    /* === APPS GRID === */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    @media (max-width: 768px) {
+      .apps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* === CARD WITH AMBIENT GLASSMORPHISM & GLOW === */
+    .app-card {
+      background: rgba(15, 23, 42, 0.65);
+      border-radius: 20px;
+      padding: 25px;
+      min-height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 25px;
+      position: relative;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(147, 51, 234, 0.3);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    
+    .app-card:hover {
+      border-color: #34d399;
+      box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3), 0 0 20px rgba(147, 51, 234, 0.2);
+      background: rgba(20, 30, 55, 0.85);
+      transform: translateY(-5px);
+    }
+
+    /* Left Side Image Container */
+    .app-img-container {
+      position: relative;
+      margin-top: 12px; 
+    }
+
+    .app-img-container img {
+      width: 85px;
+      height: 85px;
+      border-radius: 18px;
+      object-fit: cover;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: #0b0f19;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Right Side Info Area */
+    .app-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      z-index: 1;
+      flex-grow: 1;
+    }
+
+    /* Capital Title */
+    .app-info h3 {
+      font-size: 19px;
+      font-weight: 800;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    /* Small Letter Subtitle */
+    .app-subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      color: #cbd5e1;
+      margin-bottom: 2px;
+      line-height: 1.2;
+    }
+
+    /* 5 Star Rating Style */
+    .rating {
+      color: #ffb703;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-shadow: 0 0 8px rgba(255, 183, 3, 0.6);
+      margin-bottom: 6px;
+    }
+
+    /* === BIGGER GREEN INSTALL NOW BUTTON === */
+    .download-btn {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 26px;
+      border-radius: 28px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 800;
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      border: 1px solid #34d399;
+      box-shadow: 0 0 18px rgba(16, 185, 129, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .download-btn:hover {
+      background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+      box-shadow: 0 0 28px rgba(52, 211, 153, 0.9), 0 0 40px rgba(16, 185, 129, 0.7);
+      transform: translateY(-2px) scale(1.03);
+      color: #ffffff;
+    }
+
+    /* === BADGE POSITIONED EXACTLY ON TOP OF PNG === */
+    .badge {
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #ff0033 0%, #ff7700 100%);
+      color: #ffffff;
+      border: 1px solid #ffaa00;
+      z-index: 2;
+      white-space: nowrap;
+      animation: fireAnimation 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes fireAnimation {
+      0% {
+        transform: translateX(-50%) scale(1) translateY(0);
+        box-shadow: 0 0 6px #ff0033, 0 0 12px #ff7700;
+      }
+      50% {
+        transform: translateX(-50%) scale(1.06) translateY(-2px);
+        box-shadow: 0 0 12px #ff0033, 0 0 20px #ffaa00;
+      }
+      100% {
+        transform: translateX(-50%) scale(1) translateY(0);
+        box-shadow: 0 0 8px #ff0033, 0 0 16px #ff7700;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <img src="/1774710204407.png" alt="G Logo">
+    <h1>Rector Gaming</h1>
+  </header>
+
+  <!-- Tagline / Title Section -->
+  <div class="title-section">
+    <h2>Free Fire Rewards</h2>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-container">
+    <input type="text" placeholder="Search apps or rewards...">
+  </div>
+
+  <!-- Apps Grid -->
+  <div class="apps-grid">
+    
+    <!-- App 1 -->
+    <div class="app-card">
+      <div class="app-img-container">
+        <span class="badge">🔥 HOT</span>
+        <img src="/1774710204407.png" alt="PROXY SERVER">
+      </div>
+      <div class="app-info">
+        <h3>PROXY SERVER</h3>
+        <p class="app-subtitle">Proxy server unlimited access</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <!-- Yahan # ki jagah apna link daalein -->
+        <a href="https://cronygaming501-hash.github.io/crony-lol-emote/" target="_blank" rel="noopener" class="download-btn">Install Now</a>
+      </div>
+    </div>
+
+    <!-- App 2 -->
+    <div class="app-card">
+      <div class="app-img-container">
+        <span class="badge">🔥 HOT</span>
+        <img src="https://via.placeholder.com/85" alt="PROXY SERVER">
+      </div>
+      <div class="app-info">
+        <h3>PROXY SERVER</h3>
+        <p class="app-subtitle">Proxy server unlimited access</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <!-- Yahan # ki jagah apna link daalein -->
+        <a href="#" target="_blank" rel="noopener" class="download-btn">Install Now</a>
+      </div>
+    </div>
+
+    <!-- App 3 -->
+    <div class="app-card">
+      <div class="app-img-container">
+        <span class="badge">🔥 HOT</span>
+        <img src="https://via.placeholder.com/85" alt="PROXY SERVER">
+      </div>
+      <div class="app-info">
+        <h3>PROXY SERVER</h3>
+        <p class="app-subtitle">Proxy server unlimited access</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <!-- Yahan # ki jagah apna link daalein -->
+        <a href="#" target="_blank" rel="noopener" class="download-btn">Install Now</a>
+      </div>
+    </div>
+
+    <!-- App 4 -->
+    <div class="app-card">
+      <div class="app-img-container">
+        <span class="badge">🔥 PREMIUM</span>
+        <img src="https://via.placeholder.com/85" alt="PROXY SERVER">
+      </div>
+      <div class="app-info">
+        <h3>PROXY SERVER</h3>
+        <p class="app-subtitle">Proxy server unlimited access</p>
+        <div class="rating">⭐⭐⭐⭐⭐</div>
+        <!-- Yahan # ki jagah apna link daalein -->
+        <a href="#" target="_blank" rel="noopener" class="download-btn">Install Now</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
